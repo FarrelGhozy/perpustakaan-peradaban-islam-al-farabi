@@ -25,3 +25,6 @@ Thumbs.db
 __pycache__/
 *.pyc
 .venv/
+
+# Build artifact lokal (deliverable resmi: output/naskah.pdf)
+naskah/*.pdf
