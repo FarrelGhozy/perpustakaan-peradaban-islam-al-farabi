@@ -85,6 +85,6 @@
 ## Slide 10 — Daftar pustaka pilihan & penutup
 
 - Pesan: transparansi sumber.
-- Poin: 6 teks-penuh (SEP ×4, Codd, MJSS) + 10 metadata;
+- Poin: 7 teks-penuh (5 SEP HTML resmi + Codd + MJSS) + 9 metadata resmi;
   lokasi folder kutipan; terima kasih.
-- Visual: daftar 6 sumber utama + QR repo (opsional).
+- Visual: daftar 7 sumber utama + QR repo (opsional).

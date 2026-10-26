@@ -2,34 +2,95 @@
 % Aturan: setiap klaim faktual bersitasi; sumber metadata hanya untuk klaim umum
 % tanpa nomor halaman; interpretasi/analogi penulis ditandai eksplisit.
 % Kompilasi: lualatex + biber + lualatex + lualatex (lihat naskah/README.md).
+% Format wajib: A4, 12pt, single spacing, margin 2,54 cm, font Times (TeX Gyre Termes
+% sebagai klon metrik karena Times New Roman asli tidak tersedia di host ini).
 \documentclass[12pt,a4paper]{article}
 
 \usepackage{fontspec}
-\setmainfont{TeX Gyre Termes} % Klon metrik Times; Times New Roman asli tidak tersedia di host ini (lihat log/verifikasi).
+\setmainfont{TeX Gyre Termes} % Klon metrik Times; lihat log/verifikasi.
 \usepackage{geometry}
 \geometry{a4paper, top=2.54cm, bottom=2.54cm, left=2.54cm, right=2.54cm}
 \usepackage{setspace}
 \singlespacing
 \usepackage{booktabs}
+\usepackage{tabularx}
 \usepackage{enumitem}
+\usepackage{caption}
+\captionsetup{font=small, labelfont=bf, skip=6pt}
+\usepackage{microtype}
+\usepackage{fancyhdr}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
 \usepackage[notes,backend=biber]{biblatex-chicago}
 \addbibresource{referensi.bib}
 \usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
 
-\title{Perpustakaan dalam Peradaban Islam:\\Dari Katalog Manuskrip Menuju Konsep Perpustakaan Digital dan Basis Data}
-\author{Farrel Ghozy Affifudin\\NIM 452024611053\\Program Studi Teknik Informatika\\Universitas Darussalam Gontor}
-\date{2026}
+% Header–footer rapi, isi tetap single spacing
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\itshape Perpustakaan dalam Peradaban Islam}
+\fancyhead[R]{\small\itshape Farabi — Logika — Basis Data}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \fancyfoot[C]{\small\thepage}%
+  \renewcommand{\headrulewidth}{0pt}%
+}
+
+% Kotak tesis dan batas analogi
+\newtcolorbox{tesisbox}{
+  colback=gray!6, colframe=gray!60, fonttitle=\bfseries,
+  title=Tesis Makalah, sharp corners, boxrule=0.6pt, left=8pt, right=8pt, top=6pt, bottom=6pt
+}
+\newtcolorbox{batasbox}{
+  colback=gray!4, colframe=gray!60, fonttitle=\bfseries,
+  title=Batas Analogi — dibaca sebelum menyimpulkan, sharp corners, boxrule=0.6pt,
+  left=8pt, right=8pt, top=6pt, bottom=6pt, breakable
+}
 
 \begin{document}
-\maketitle
 
-\begin{abstract}
+% ===== Halaman sampul =====
+\begin{titlepage}
+\centering
+{\large\bfseries UNIVERSITAS DARUSSALAM GONTOR\par}
+{\normalsize Fakultas Sains dan Teknologi\\Program Studi Teknik Informatika\par}
+\vspace{1.2cm}
+{\rule{\textwidth}{1pt}\par}
+\vspace{0.6cm}
+{\Large\bfseries Perpustakaan dalam Peradaban Islam:\par}
+\vspace{0.2cm}
+{\Large Dari Katalog Manuskrip Menuju Konsep Perpustakaan Digital dan Basis Data\par}
+\vspace{0.6cm}
+{\rule{\textwidth}{1pt}\par}
+\vspace{0.8cm}
+{\normalsize Makalah Penelitian\\Fokus: kontribusi Abu Nashr al-Farabi dalam logika
+serta relevansinya dengan logika formal Teknik Informatika\par}
+\vspace{1.2cm}
+{\normalsize Disusun oleh:\par}
+{\large\bfseries Farrel Ghozy Affifudin\par}
+{\normalsize NIM 452024611053\par}
+\vspace{1.5cm}
+{\normalsize 2026\par}
+\vfill
+{\small Sumber utama (\texttt{naskah/main.tex} + \texttt{referensi.bib});
+keluaran PDF: \texttt{output/naskah.pdf}.
+Sitasi Chicago Notes and Bibliography via \texttt{biblatex-chicago}.\\Font: TeX Gyre Termes
+(klon metrik Times; Times New Roman asli tidak tersedia di host ini).\par}
+\end{titlepage}
+
+% ===== Abstrak =====
+\section*{Abstrak}
+\addcontentsline{toc}{section}{Abstrak}
 Makalah ini meneliti dua warisan peradaban Islam — tradisi perpustakaan dan
 pengatalogan manuskrip, serta kontribusi Abu Nashr al-Farabi terhadap
 perkembangan logika — lalu membandingkannya secara terstruktur dengan logika
 formal dalam Teknik Informatika (representasi pengetahuan, temu kembali
 informasi, dan basis data relasional). Dengan berlandaskan enam belas sumber
-terverifikasi, enam di antaranya diperiksa teks-penuhnya, makalah ini
+terverifikasi, tujuh di antaranya diperiksa teks-penuhnya (lima entri SEP yang
+diarsipkan HTML resmi + dua PDF jurnal), makalah ini
 berargumen bahwa kemiripan antara pengorganisasian pengetahuan klasik dan
 modern bersifat \emph{fungsional}, bukan \emph{genealogis}: katalog manuskrip
 dan \emph{system catalog} basis data menjawab problem temu-kembali yang
@@ -39,12 +100,21 @@ konseptual — dari silogisme demonstratif Farabi hingga kalkulus predikat Codd
 teori himpunan) membatasi analogi tersebut secara tegas. Makalah ini menolak
 klaim bahwa al-Farabi menemukan basis data, dan melaporkan keterbatasan
 sumber secara terbuka.
-\end{abstract}
 
 \noindent\textbf{Kata kunci:} al-Farabi, logika Arab, perpustakaan Islam,
 Bayt al-Hikmah, basis data relasional, temu kembali informasi.
 
+\begin{tesisbox}
+Kemiripan pengorganisasian pengetahuan klasik dan modern bersifat
+\emph{fungsional} (problem temu-kembali yang sejenis), bukan \emph{genealogis}
+(tidak ada garis keturunan historis langsung dari al-Farabi ke basis data).
+Logika adalah jembatan konseptual yang sah, tetapi perbedaan fondasi
+membatasi analogi secara tegas. Setiap klaim di bawah dipetakan ke sumber di
+\texttt{riset/matriks\_sumber.md} dan \texttt{kutipan/daftar\_sumber.md}.
+\end{tesisbox}
+
 \tableofcontents
+\listoftables
 \newpage
 
 \section{Pendahuluan}
@@ -85,19 +155,15 @@ al-Farabi terhadap logika; (3) apa persamaan dan perbedaan logika Farabian
 dengan logika formal TI; dan (4) sejauh mana perbandingan itu sah dan di
 mana batasnya.
 
-Tesis makalah ini: kemiripan antara pengorganisasian pengetahuan klasik dan
-modern bersifat \emph{fungsional} (menjawab problem temu-kembali yang
-sejenis), bukan \emph{genealogis} (tidak ada garis keturunan historis
-langsung dari al-Farabi ke basis data). Logika menyediakan jembatan
-konseptual yang sah, tetapi perbedaan fondasi membatasi analogi secara
-tegas.
-
 \textit{Catatan metode dan status sumber (interpretasi panduan pembaca).}
-Makalah ini membedakan tiga hal: fakta terverifikasi teks-penuh (dikutip
+Makalah membedakan tiga hal: fakta terverifikasi teks-penuh (disitasi
 dengan bagian/halaman persis), fakta kontekstual dari sumber terverifikasi
-metadata (dikutip tanpa nomor halaman, hanya untuk keberadaan dan cakupan
+metadata (disitasi tanpa nomor halaman, hanya untuk keberadaan dan cakupan
 umum karya), serta interpretasi dan analogi penulis yang ditandai eksplisit
-sebagai ``interpretasi penulis''. Pemetaan lengkap ada di
+sebagai ``interpretasi penulis''. Arsip resmi tiap sumber ada di
+\texttt{kutipan/} (HTML resmi SEP di \texttt{kutipan/sep/}, PDF jurnal di
+\texttt{kutipan/artikel\_jurnal/}, catatan resmi per buku di
+\texttt{kutipan/buku/}); pemetaan lengkap ada di
 \texttt{riset/matriks\_sumber.md}; riwayat pemeriksaan di
 \texttt{log/catatan\_verifikasi.md}.
 
@@ -187,7 +253,7 @@ Dimensi dialektika — seni debat dan pengujian premis — diwakili oleh
 \emph{Kitab al-Jadal}, yang kini tersedia kajian monografisnya
 (interpretasi penulis: ini menunjukkan logika Farabi mencakup penalaran
 defeasible, bukan hanya demonstrasi
- ketat).\autocite{dipasquale2019}
+ketat).\autocite{dipasquale2019}
 
 \subsection{Keberatan: apakah kontribusi Farabi dilebih-lebihkan?}
 
@@ -226,11 +292,11 @@ Tabel~\ref{tab:banding} merangkum perbandingan. Kolom terakhir menandai
 status setiap baris: (H) hubungan historis langsung — \emph{tidak ada yang
 memenuhi syarat bukti}; (F) kemiripan fungsional; (T) perbedaan teknis.
 
-\begin{table}[h]
+\begin{table}[htbp]
 \centering
 \caption{Perbandingan logika Farabian dan logika formal TI}
 \label{tab:banding}
-\begin{tabular}{@{}p{3.2cm}p{4.2cm}p{4.2cm}c@{}}
+\begin{tabularx}{\textwidth}{@{}lXXc@{}}
 \toprule
 Aspek & Al-Farabi & Teknik Informatika & Status\\
 \midrule
@@ -241,7 +307,10 @@ Katalog & \emph{Fihrist}: alat bantu manusia menemukan manuskrip & \emph{System 
 Temu kembali & Klasifikasi dan daftar koleksi & Model Boolean, probabilistik; indeks terbalik & F+T\\
 Basis formal & Bahasa + tatanan mental (\emph{tartib}) & Teori himpunan + aljabar relasional + indeks & T\\
 \bottomrule
-\end{tabular}
+\end{tabularx}
+\\[4pt]
+{\small Status: H = historis langsung (tidak ada yang terbukti);
+F = kemiripan fungsional; T = perbedaan teknis. Sumber: sintesis penulis dari S01/S13/S14.}
 \end{table}
 
 Dua baris patut diuraikan. Pertama, katalog: \emph{fihrist} manuskrip dan
@@ -255,20 +324,19 @@ premis, tetapi demonstrasi Farabi bergerak dalam bahasa alamiah yang
 didisiplinkan, sedangkan pembuktian komputasi bergerak dalam bahasa formal
 yang dapat dieksekusi mesin.
 
-\subsection{Batas analogi (eksplisit)}
-
-Penulis menegaskan tiga batas (kesimpulan penulis, bukan fakta sejarah).
-Pertama, \emph{tidak ada hubungan historis langsung}: tidak ada bukti bahwa
+\begin{batasbox}
+\textbf{(1) Tidak ada hubungan historis langsung.} Tidak ada bukti bahwa
 al-Farabi memengaruhi Codd atau perancang basis data; kesamaan kosakata
 (``katalog'') adalah konvergensi fungsional, dan mengklaim sebaliknya adalah
-anakronisme (menjawab O1). Kedua, klasifikasi ilmu pra-modern bersifat
-\emph{normatif-filosofis} — menetapkan tatanan ilmu yang seharusnya —
-sedangkan skema basis data bersifat \emph{operasional}: ia harus mengeksekusi
-kueri dalam batas waktu (menjawab O3). Ketiga, basis data tidak direduksi
-menjadi logika semata: model data, struktur indeks, bahasa kueri, dan
-rancangan sistem adalah lapisan teknik yang tidak identik dengan silogisme
+anakronisme (menjawab O1). \textbf{(2) Normatif-filosofis vs operasional.}
+Klasifikasi ilmu pra-modern menetapkan tatanan ilmu yang seharusnya,
+sedangkan skema basis data harus mengeksekusi kueri dalam batas waktu
+(menjawab O3). \textbf{(3) Basis data tidak direduksi menjadi logika semata.}
+Model data, struktur indeks, bahasa kueri, dan rancangan sistem adalah lapisan
+teknik yang tidak identik dengan silogisme
 (interpretasi penulis, didukung arsitektur Codd yang memisahkan
 \emph{sublanguage} data dari kalkulusnya).\autocite[381]{codd1970}
+\end{batasbox}
 
 \section{Kesimpulan}
 

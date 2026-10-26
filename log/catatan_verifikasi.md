@@ -222,3 +222,24 @@ Log pemeriksaan sumber. Jujur dan lengkap: catat juga yang GAGAL diverifikasi.
 - Font: Times New Roman tidak tersedia di host ini; kompilasi memakai
   TeX Gyre Termes (klon metrik Times) via fontspec — dinyatakan di naskah/README.md,
   bukan diklaim sebagai Times New Roman asli.
+
+### [2026-10-26] Pengarsipan resmi putaran 2 — URL official + arsip legal maksimal
+- Semua DOI/URL di daftar_sumber diganti ke URL resmi (official): DOI resmi + landing penerbit.
+- SEP S01–S04, S15: HTML resmi diunduh (al-farabi-logic 135 KB, al-farabi 68 KB,
+  aristotle-logic 131 KB, ibn-sina 100 KB, information 280 KB) ke kutipan/sep/.
+  Semua mengandung penanda "Stanford Encyclopedia of Philosophy". Lisensi: baca terbuka,
+  arsip lokal fair-use, repo private.
+- Jurnal resmi: S13 DOI 10.1515/mjss-2017-0036 resolves HTTP 200 ke OJS Richtmann
+  (official) — PDF yang diarsipkan berasal dari OJS tersebut, CC BY-NC-ND.
+  S14 DOI 10.1145/362384.362685 Crossref 200; landing ACM dl.acm.org HTTP 403 bot
+  (didokumentasikan, bukan bukti tidak ada); PDF mirror UPenn 11 hlm terverifikasi pdfinfo.
+  S12 DOI 10.1086/613127 Crossref 200; landing UCP journals.uchicago.edu HTTP 403 bot
+  (didokumentasikan); teks-penuh tidak diunduh (paywall).
+- Buku resmi: S06 Springer landing HTTP 200; S08 CUP core HTTP 200;
+  S07 Brill landing valid tapi 403 bot; S11 De Gruyter landing valid (202 challenge);
+  S10 Routledge DOI 404 di doi.org (dicatat jujur, otoritas ke Crossref+Routledge);
+  S16 CUP landing HTTP 200 + edisi bebas resmi penulis informationretrieval.org
+  (redirect ke nlp.stanford.edu/IR-book, host tidak terjangkau dari jaringan ini HTTP 000).
+- Struktur baru: kutipan/sep/, kutipan/buku/*_catatan.md (8 buku), kutipan/artikel_jurnal/*_catatan.md
+  (3 jurnal), kutipan/sumber_primer/README.md. Tidak ada PDF bajakan baru.
+- OFFICIAL_URLS.md di kutipan/sep/ diganti README.md yang rapi (file lama dihapus).
