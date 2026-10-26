@@ -1,55 +1,44 @@
-% Naskah utama — makalah lengkap.
-% Aturan: setiap klaim faktual bersitasi; sumber metadata hanya untuk klaim umum
-% tanpa nomor halaman; interpretasi/analogi penulis ditandai eksplisit.
-% Kompilasi: lualatex + biber + lualatex + lualatex (lihat naskah/README.md).
-% Format wajib: A4, 12pt, single spacing, margin 2,54 cm, font Times (TeX Gyre Termes
-% sebagai klon metrik karena Times New Roman asli tidak tersedia di host ini).
+% Naskah utama — makalah revisi.
+% Kompilasi: lualatex + biber + lualatex + lualatex.
 \documentclass[12pt,a4paper]{article}
 
 \usepackage{fontspec}
-\setmainfont{TeX Gyre Termes} % Klon metrik Times; lihat log/verifikasi.
+\setmainfont{TeX Gyre Termes}
 \usepackage{geometry}
 \geometry{a4paper, top=2.54cm, bottom=2.54cm, left=2.54cm, right=2.54cm}
+\setlength{\headheight}{14pt}
 \usepackage{setspace}
 \singlespacing
 \usepackage{booktabs}
 \usepackage{tabularx}
+\usepackage{array}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
 \usepackage{enumitem}
 \usepackage{caption}
 \captionsetup{font=small, labelfont=bf, skip=6pt}
 \usepackage{microtype}
 \usepackage{fancyhdr}
-\usepackage{tcolorbox}
-\tcbuselibrary{breakable}
+\usepackage{csquotes}
 \usepackage[notes,backend=biber]{biblatex-chicago}
 \addbibresource{referensi.bib}
+\usepackage{xurl}
 \usepackage[hidelinks]{hyperref}
 \usepackage{graphicx}
 \renewcommand{\contentsname}{Daftar Isi}
 \renewcommand{\listtablename}{Daftar Tabel}
+\renewcommand{\tablename}{Tabel}
+\setlength{\emergencystretch}{3em}
 
-% Header–footer rapi, isi tetap single spacing
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\small\itshape Perpustakaan dalam Peradaban Islam}
-\fancyhead[R]{\small\itshape Farabi — Logika — Basis Data}
+\fancyhead[L]{\small\itshape Pengorganisasian Pengetahuan}
+\fancyhead[R]{\small\itshape al-Farabi --- Basis Data}
 \fancyfoot[C]{\small\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \fancypagestyle{plain}{%
   \fancyhf{}%
   \fancyfoot[C]{\small\thepage}%
   \renewcommand{\headrulewidth}{0pt}%
-}
-
-% Kotak tesis dan batas analogi
-\newtcolorbox{tesisbox}{
-  colback=gray!6, colframe=gray!60, fonttitle=\bfseries,
-  title=Tesis Makalah, sharp corners, boxrule=0.6pt, left=8pt, right=8pt, top=6pt, bottom=6pt
-}
-\newtcolorbox{batasbox}{
-  colback=gray!4, colframe=gray!60, fonttitle=\bfseries,
-  title=Batas Analogi — dibaca sebelum menyimpulkan, sharp corners, boxrule=0.6pt,
-  left=8pt, right=8pt, top=6pt, bottom=6pt, breakable
 }
 
 \begin{document}
@@ -59,61 +48,33 @@
 \centering
 {\large\bfseries UNIVERSITAS DARUSSALAM GONTOR\par}
 {\normalsize Fakultas Sains dan Teknologi\\Program Studi Teknik Informatika\par}
-\vspace{1.2cm}
+\vspace{1.4cm}
 {\rule{\textwidth}{1pt}\par}
-\vspace{0.6cm}
-{\Large\bfseries Perpustakaan dalam Peradaban Islam:\par}
-\vspace{0.2cm}
-{\Large Dari Katalog Manuskrip Menuju Konsep Perpustakaan Digital dan Basis Data\par}
-\vspace{0.6cm}
+\vspace{0.7cm}
+{\Large\bfseries Pengorganisasian Pengetahuan dalam Peradaban Islam\\dan Basis Data Modern:\par}
+\vspace{0.25cm}
+{\Large Perbandingan Konseptual melalui Logika al-Farabi\par}
+\vspace{0.7cm}
 {\rule{\textwidth}{1pt}\par}
-\vspace{0.8cm}
-{\normalsize Makalah Penelitian\\Fokus: kontribusi Abu Nashr al-Farabi dalam logika
-serta relevansinya dengan logika formal Teknik Informatika\par}
-\vspace{1.2cm}
+\vspace{0.9cm}
+{\normalsize Makalah Penelitian\par}
+\vspace{0.3cm}
+{\small Fokus: kontribusi Abu Nasr al-Farabi dalam logika serta relevansinya\\dengan logika formal dalam Teknik Informatika\par}
+\vspace{1.4cm}
 {\normalsize Disusun oleh:\par}
+\vspace{0.2cm}
 {\large\bfseries Farrel Ghozy Affifudin\par}
 {\normalsize NIM 452024611053\par}
-\vspace{1.5cm}
-{\normalsize 2026\par}
 \vfill
-{\small Sumber utama (\texttt{naskah/main.tex} + \texttt{referensi.bib});
-keluaran PDF: \texttt{output/naskah.pdf}.
-Sitasi Chicago Notes and Bibliography via \texttt{biblatex-chicago}.\\Font: TeX Gyre Termes
-(klon metrik Times; Times New Roman asli tidak tersedia di host ini).\par}
+{\normalsize 2026\par}
 \end{titlepage}
 
 % ===== Abstrak =====
 \section*{Abstrak}
 \addcontentsline{toc}{section}{Abstrak}
-Makalah ini meneliti dua warisan peradaban Islam — tradisi perpustakaan dan
-pengatalogan manuskrip, serta kontribusi Abu Nashr al-Farabi terhadap
-perkembangan logika — lalu membandingkannya secara terstruktur dengan logika
-formal dalam Teknik Informatika (representasi pengetahuan, temu kembali
-informasi, dan basis data relasional). Dengan berlandaskan enam belas sumber
-terverifikasi, tujuh di antaranya diperiksa teks-penuhnya (lima entri SEP yang
-diarsipkan HTML resmi + dua PDF jurnal), makalah ini
-berargumen bahwa kemiripan antara pengorganisasian pengetahuan klasik dan
-modern bersifat \emph{fungsional}, bukan \emph{genealogis}: katalog manuskrip
-dan \emph{system catalog} basis data menjawab problem temu-kembali yang
-sejenis, tetapi berbeda fondasi teknis. Logika menyediakan jembatan
-konseptual — dari silogisme demonstratif Farabi hingga kalkulus predikat Codd
-— namun perbedaan fondasi (silogisme kategoris versus kalkulus formal dan
-teori himpunan) membatasi analogi tersebut secara tegas. Makalah ini menolak
-klaim bahwa al-Farabi menemukan basis data, dan melaporkan keterbatasan
-sumber secara terbuka.
+Makalah ini membahas pengorganisasian pengetahuan dalam peradaban Islam dan basis data modern melalui perbandingan konseptual yang bertumpu pada logika Abu Nasr al-Farabi. Masalah yang diangkat adalah bagaimana tradisi perpustakaan dan pengatalogan manuskrip berkembang, apa kontribusi spesifik al-Farabi dalam logika, serta apa persamaan dan batas perbandingannya dengan logika formal dalam Teknik Informatika. Metode yang digunakan adalah kajian pustaka dengan pendekatan perbandingan konseptual. Sumber utama adalah kajian logika al-Farabi dan logika Aristoteles, kajian filsafat informasi, serta kajian model data relasional, dilengkapi literatur sejarah perpustakaan Islam sebagai konteks. Hasil analisis menunjukkan bahwa katalog manuskrip dan katalog sistem basis data memiliki kemiripan fungsional sebagai sarana temu kembali, tetapi berbeda fondasi teknis. Logika al-Farabi, khususnya teori silogisme, demonstrasi, dan dialektika, menyediakan jembatan konseptual menuju representasi dan inferensi dalam sistem komputasi, tetapi silogisme dalam bahasa alamiah yang didisiplinkan tidak sama dengan kalkulus predikat yang dapat dieksekusi mesin. Simpulan makalah ini adalah perbandingan tersebut sah sebagai analisis konseptual dan gugur sebagai klaim hubungan sejarah langsung.
 
-\noindent\textbf{Kata kunci:} al-Farabi, logika Arab, perpustakaan Islam,
-Bayt al-Hikmah, basis data relasional, temu kembali informasi.
-
-\begin{tesisbox}
-Kemiripan pengorganisasian pengetahuan klasik dan modern bersifat
-\emph{fungsional} (problem temu-kembali yang sejenis), bukan \emph{genealogis}
-(tidak ada garis keturunan historis langsung dari al-Farabi ke basis data).
-Logika adalah jembatan konseptual yang sah, tetapi perbedaan fondasi
-membatasi analogi secara tegas. Setiap klaim di bawah dipetakan ke sumber di
-\texttt{riset/matriks\_sumber.md} dan \texttt{kutipan/daftar\_sumber.md}.
-\end{tesisbox}
+\noindent\textbf{Kata kunci:} pengorganisasian pengetahuan, al-Farabi, logika Arab, katalog manuskrip, basis data relasional, temu kembali informasi.
 
 \newpage
 \tableofcontents
@@ -122,247 +83,102 @@ membatasi analogi secara tegas. Setiap klaim di bawah dipetakan ke sumber di
 
 \section{Pendahuluan}
 
-Perpustakaan dalam peradaban Islam bukan sekadar gudang buku. Survei
-Algeriani dan Mohadi mencatat bahwa Bayt al-Hikmah di Baghdad memiliki
-``sistem manajemen yang sangat terorganisasi, khususnya dalam pengumpulan dan
-pengatalogan buku''.\autocite{algeriani-mohadi2017} Klaim ini penting karena
-menunjukkan bahwa problem pengorganisasian pengetahuan — bagaimana menemukan
-kembali apa yang telah disimpan — sudah dilembagakan berabad-abad sebelum
-basis data modern. Perhatian historiografis modern terhadap perpustakaan
-Islam pun cukup tua: kajian tentang empat perpustakaan besar Baghdad abad
-pertengahan telah terbit sejak 1932.\autocite{mackensen1932}
+Perpustakaan dalam peradaban Islam bukan sekadar tempat penyimpanan buku. Survei Algeriani dan Mohadi mencatat bahwa Bayt al-Hikmah di Baghdad memiliki sistem manajemen yang sangat terorganisasi, khususnya dalam pengumpulan dan pengatalogan buku.\autocite{algeriani-mohadi2017} Pernyataan tersebut penting karena menunjukkan bahwa masalah pengorganisasian pengetahuan, yaitu bagaimana menemukan kembali apa yang telah disimpan, sudah dilembagakan jauh sebelum basis data modern. Perhatian kajian modern terhadap perpustakaan Islam pun cukup tua: kajian tentang empat perpustakaan besar Baghdad abad pertengahan telah terbit sejak 1932.\autocite{mackensen1932}
 
-Di sisi lain, Abu Nashr al-Farabi, filsuf abad ke-10 M, menempati kedudukan
-sentral dalam transmisi dan pengembangan logika Aristotelian ke dalam bahasa
-Arab.\autocite{druart2024} Komentar-komentarnya atas \emph{Organon},
-termasuk komentar atas \emph{De Interpretatione} yang diedit secara kritis
-oleh Zimmermann,\autocite{zimmermann1981} serta uraian sistematisnya tentang
-silogisme, demonstrasi, dan dialektika, menjadikannya titik rujuk utama
-tradisi logika Arab-Islam.\autocite{hodges-druart2019} Kajian modern
-menempatkan silogisme Arab — kategoris, modal, dan hipotetik — sebagai bidang
-tersendiri dari al-Farabi hingga Averroes.\autocite{chatti2019} Tradisi ini
-bahkan memperluas cakupan \emph{Organon} hingga mencakup retorika dan
-puisi.\autocite{black1990} Karya dialektika Farabi, \emph{Kitab al-Jadal},
-telah dikaji dalam monograf tersendiri,\autocite{dipasquale2019} dan
-terjemahan Inggris atas karya-karya filsafatnya tersedia sejak
-1969.\autocite{mahdi1969}
+Di sisi lain, Abu Nasr al-Farabi, filsuf abad ke-10 M, menempati kedudukan sentral dalam pewarisan dan pengembangan logika Aristoteles dalam bahasa Arab.\autocite{druart2024} Kajian Hodges dan Druart menunjukkan bahwa komentar-komentarnya atas \emph{Organon} serta uraian sistematisnya tentang silogisme, demonstrasi, dan dialektika menjadikannya titik rujuk utama tradisi logika Arab-Islam.\autocite{hodges-druart2019} Kedudukan edisi kritis komentarnya atas \emph{De Interpretatione} yang disunting Zimmermann pada 1981 diketahui melalui kajian tersebut.\autocite{zimmermann1981} Kajian modern menempatkan silogisme Arab, yang mencakup silogisme kategoris, modal, dan hipotetik, sebagai bidang tersendiri dari al-Farabi hingga Averroes.\autocite{chatti2019} Tradisi ini bahkan memperluas cakupan \emph{Organon} hingga mencakup retorika dan puisi.\autocite{black1990} Karya dialektika al-Farabi, \emph{Kitab al-Jadal}, telah dikaji dalam monograf tersendiri,\autocite{dipasquale2019} dan terjemahan Inggris atas karya-karya filsafatnya telah tersedia sejak 1969.\autocite{mahdi1969}
 
-Pertanyaannya: apa relevansi semua ini bagi Teknik Informatika? Disiplin ini
-berdiri di atas logika formal — kalkulus predikat menjadi fondasi model data
-relasional,\autocite{codd1970} temu kembali informasi menjadi disiplin
-buku-teks tersendiri,\autocite{manning2008} dan filsafat informasi kini
-diakui sebagai sub-disiplin filsafat.\autocite{adriaans2023} Makalah ini
-menjawab empat pertanyaan: (1) bagaimana tradisi perpustakaan dan
-pengatalogan berkembang dalam peradaban Islam; (2) apa kontribusi spesifik
-al-Farabi terhadap logika; (3) apa persamaan dan perbedaan logika Farabian
-dengan logika formal TI; dan (4) sejauh mana perbandingan itu sah dan di
-mana batasnya.
+Relevansinya bagi Teknik Informatika terletak pada kedudukan logika formal. Model data relasional dibangun di atas kalkulus predikat terapan,\autocite{codd1970} temu kembali informasi telah menjadi disiplin buku teks tersendiri,\autocite{manning2008} dan filsafat informasi kini diakui sebagai subdisiplin filsafat.\autocite{adriaans2023} Makalah ini menjawab empat pertanyaan: (1) bagaimana tradisi perpustakaan dan pengatalogan berkembang dalam peradaban Islam; (2) apa kontribusi spesifik al-Farabi terhadap logika; (3) apa persamaan dan perbedaan logika al-Farabi dengan logika formal dalam Teknik Informatika; dan (4) sejauh mana perbandingan itu sah dan di mana batasnya.
 
-\textit{Catatan metode dan status sumber (interpretasi panduan pembaca).}
-Makalah membedakan tiga hal: fakta terverifikasi teks-penuh (disitasi
-dengan bagian/halaman persis), fakta kontekstual dari sumber terverifikasi
-metadata (disitasi tanpa nomor halaman, hanya untuk keberadaan dan cakupan
-umum karya), serta interpretasi dan analogi penulis yang ditandai eksplisit
-sebagai ``interpretasi penulis''. Arsip resmi tiap sumber ada di
-\texttt{kutipan/} (HTML resmi SEP di \texttt{kutipan/sep/}, PDF jurnal di
-\texttt{kutipan/artikel\_jurnal/}, catatan resmi per buku di
-\texttt{kutipan/buku/}); pemetaan lengkap ada di
-\texttt{riset/matriks\_sumber.md}; riwayat pemeriksaan di
-\texttt{log/catatan\_verifikasi.md}.
+Tesis makalah ini adalah kemiripan antara pengorganisasian pengetahuan klasik dan modern bersifat fungsional, yaitu menjawab masalah temu kembali yang sejenis, bukan genealogis dalam arti garis keturunan sejarah langsung. Logika menjadi jembatan konseptual yang sah, tetapi perbedaan fondasi membatasi analogi tersebut secara tegas.
+
+\section{Metode Penelitian}
+
+Makalah ini menggunakan kajian pustaka dengan pendekatan perbandingan konseptual. Langkah kerjanya adalah menghimpun literatur tentang perpustakaan Islam, logika al-Farabi, dan logika formal dalam komputasi, kemudian membandingkan konsep-konsepnya berdasarkan fungsi dan fondasinya, bukan berdasarkan dugaan pengaruh sejarah.
+
+Cakupan sumber terdiri atas dua kelompok. Kelompok pertama adalah sumber yang diperiksa teks penuhnya: entri \emph{Stanford Encyclopedia of Philosophy} tentang logika dan bahasa al-Farabi, logika Aristoteles, Ibnu Sina, dan informasi, serta dua artikel jurnal tentang Bayt al-Hikmah dan model data relasional. Kelompok kedua adalah literatur pendukung yang digunakan untuk konteks umum tanpa kutipan halaman karena teks penuhnya belum diakses: kajian tentang silogisme Arab, retorika dan puisi dalam filsafat Arab, dialektika al-Farabi, terjemahan karya al-Farabi, gerakan penerjemahan Graeco-Arab, budaya buku Arab, kajian awal perpustakaan Baghdad, dan buku teks temu kembali informasi.
+
+Naskah ini membedakan tiga hal: fakta yang didukung referensi, interpretasi penulis yang dinyatakan eksplisit sebagai interpretasi penulis, dan analogi konseptual yang dinyatakan eksplisit sebagai analogi. Keterbatasannya adalah klaim dari kelompok kedua hanya bersifat umum. Angka-angka rinci tentang tahun pendirian atau jumlah koleksi perpustakaan tidak dibahas karena memerlukan silang dengan sumber primer seperti \emph{Fihrist} Ibn al-Nadim dan teks penuh kajian sejarah yang belum diakses.
 
 \section{Kajian Historis: Perpustakaan dan Pengetahuan dalam Peradaban Islam}
 
 \subsection{Bayt al-Hikmah dan tradisi pengatalogan}
 
-Konteks intelektual Baghdad abad ke-8 hingga ke-10 M dibentuk oleh gerakan
-penerjemahan karya Yunani ke bahasa Arab — gerakan Graeco-Arabic yang
-didokumentasikan Gutas.\autocite{gutas1998} Dalam ekosistem inilah
-institusi-institusi ilmu seperti Bayt al-Hikmah tumbuh. Menurut survei
-Algeriani dan Mohadi, institusi ini memiliki sistem manajemen yang sangat
-terorganisasi, terutama dalam pengumpulan dan pengatalogan
-buku.\autocite{algeriani-mohadi2017} Penulis makalah ini mencatat batas
-sumber: artikel tersebut bersifat survei sekunder, sehingga angka-angka
-spesifik (tahun pendirian, jumlah koleksi) \emph{tidak dikutip} sampai
-disilang dengan sumber primer seperti \emph{Fihrist} Ibn al-Nadim atau teks
-penuh Gutas dan Pedersen. Yang diklaim di sini hanyalah keberadaan praktik
-pengatalogan yang sistematis — klaim yang didukung teks-penuh survei
-tersebut. Budaya buku Arab secara umum, sebagai wadah tradisi manuskrip ini,
-didokumentasikan dalam kajian Pedersen.\autocite{pedersen1984}
+Konteks intelektual Baghdad abad ke-8 hingga ke-10 M dibentuk oleh gerakan penerjemahan karya Yunani ke bahasa Arab.\autocite{gutas1998} Dalam ekosistem inilah institusi ilmu seperti Bayt al-Hikmah tumbuh. Menurut survei Algeriani dan Mohadi, institusi ini memiliki sistem manajemen yang sangat terorganisasi, terutama dalam pengumpulan dan pengatalogan buku.\autocite{algeriani-mohadi2017}
 
-\subsection{Al-Farabi dalam tradisi logika}
+Batas sumber ini perlu dinyatakan. Artikel tersebut merupakan survei sekunder sehingga makalah ini hanya mengambil klaim umum tentang keberadaan praktik pengatalogan yang sistematis. Budaya buku Arab secara umum, sebagai wadah tradisi manuskrip tersebut, dibahas dalam kajian Pedersen sebagai konteks.\autocite{pedersen1984}
 
-Al-Farabi hidup dalam dunia yang dibentuk gerakan penerjemahan tersebut:
-korpus logika Aristoteles tersedia dalam bahasa Arab dan menuntut
-sistematisasi. Gambaran umum riwayat intelektualnya dirujuk ke entri umum
-Druart dengan hati-hati; seluruh klaim logika spesifik di makalah ini
-merujuk ke kajian Hodges dan Druart yang diperiksa
-teks-penuhnya.\autocite{druart2024}\autocite{hodges-druart2019}
+\subsection{al-Farabi dalam tradisi logika}
 
-Kedudukan Farabi bukan sekadar komentator pasif. Tiga buktinya: pertama,
-edisi kritis atas komentarnya terhadap \emph{De Interpretatione}
-(Zimmermann, 1981, 287 halaman) menunjukkan bobot filologis karya
-logikanya.\autocite{zimmermann1981} Kedua, kajian kontemporer menempatkan
-kontribusinya dalam busur panjang silogisme Arab dari al-Farabi hingga
-Averroes, mencakup silogisme kategoris, modal, dan
-hipotetik.\autocite{chatti2019} Ketiga, kurikulum logika sembilan bagian —
-dari \emph{Eisagoge}, \emph{Categories}, \emph{De interpretatione},
-\emph{Syllogism} (Analitik Pertama), \emph{Demonstration} (Analitik Kedua),
-\emph{Dialectic}, \emph{Sophistics}, hingga \emph{Rhetoric} dan
-\emph{Poetics} — berlanjut ke Ibnu Sina, menandakan kesinambungan tradisi
-yang dirintis generasi Farabi, bukan kontribusi sekali
-lewat.\autocite{gutas2025}
+Al-Farabi hidup dalam dunia yang dibentuk gerakan penerjemahan tersebut. Korpus logika Aristoteles telah tersedia dalam bahasa Arab dan membutuhkan sistematisasi. Gambaran umum riwayat intelektualnya merujuk pada entri umum Druart, sedangkan seluruh klaim logika yang spesifik merujuk pada kajian Hodges dan Druart.\autocite{druart2024}\autocite{hodges-druart2019}
+
+Kedudukan al-Farabi bukan sekadar komentator pasif. Pertama, keberadaan edisi kritis atas komentarnya terhadap \emph{De Interpretatione} menunjukkan bobot filologis karya logikanya.\autocite{zimmermann1981} Kedua, kajian kontemporer menempatkan kontribusinya dalam busur panjang silogisme Arab dari al-Farabi hingga Averroes yang mencakup silogisme kategoris, modal, dan hipotetik.\autocite{chatti2019} Ketiga, kurikulum logika sembilan bagian, mulai dari \emph{Eisagoge}, \emph{Categories}, \emph{De interpretatione}, \emph{Syllogism}, \emph{Demonstration}, \emph{Dialectic}, \emph{Sophistics}, hingga \emph{Rhetoric} dan \emph{Poetics}, berlanjut ke Ibnu Sina. Kelanjutan ini menandakan kesinambungan tradisi yang dirintis generasi al-Farabi, bukan kontribusi yang lewat sekali.\autocite{gutas2025}
 
 \section{Analisis Kontribusi Keilmuan: Logika al-Farabi}
 
 \subsection{Logika sebagai disiplin penilaian penalaran}
 
-Al-Farabi menempatkan logika sebagai disiplin yang menilai penalaran
-(\emph{mantiq}), analog dengan tata bahasa bagi bahasa. Dalam
-\emph{Ihsa al-Ulum} (59.9--11) ia menyatakan bahwa subjek logika ``adalah
-konsep-konsep sejauh diungkapkan oleh ungkapan, dan ungkapan-ungkapan sejauh
-mengungkapkan konsep''.\autocite[bag.~5]{hodges-druart2019} Definisi ini
-penting bagi argumen makalah: sejak awal, logika Farabi sudah mempertemukan
-\emph{konsep}, \emph{ungkapan}, dan \emph{aturan} — tiga kutub yang kelak
-muncul kembali sebagai representasi, sintaks, dan inferensi dalam sistem
-komputasi (analogi konseptual; lihat bagian~4).
+Al-Farabi menempatkan logika sebagai disiplin yang menilai penalaran, sejajar dengan kedudukan tata bahasa bagi bahasa. Dalam \emph{Ihsa al-Ulum} ia menyatakan bahwa subjek logika adalah konsep-konsep sejauh diungkapkan oleh ungkapan, dan ungkapan-ungkapan sejauh mengungkapkan konsep.\autocite[bag.~5]{hodges-druart2019} Definisi ini penting bagi argumen makalah: sejak awal logika al-Farabi sudah mempertemukan konsep, ungkapan, dan aturan. Sebagai interpretasi penulis, tiga kutub tersebut dapat dianalogikan dengan representasi, sintaks, dan inferensi dalam sistem komputasi, tetapi analogi ini dibahas tersendiri pada bagian perbandingan.
 
-Ia juga memberi definisi silogisme yang menekankan tatanan mental:
-silogisme adalah ``hal-hal yang tersusun dalam pikiran dalam suatu tatanan
-(\emph{tartib})'' (\emph{Expressions} 100.3--5).\autocite[bag.~7]{hodges-druart2019}
+Ia juga memberi definisi silogisme yang menekankan tatanan mental: silogisme adalah hal-hal yang tersusun dalam pikiran dalam suatu tatanan.\autocite[bag.~7]{hodges-druart2019}
 
 \subsection{Silogisme kategoris, hipotetik, dan demonstrasi}
 
-Latarnya adalah doktrin Aristoteles: deduksi (\emph{sullogismos}) adalah
-``ujaran (\emph{logos}) di mana, dengan mengandaikan hal-hal tertentu,
-sesuatu yang berbeda dari yang diandaikan dihasilkan secara niscaya karena
-hal-hal tersebut demikian'' (\emph{Prior Analytics} I.2,
-24b18--20).\autocite[bag.~3]{smith2022} Al-Farabi menerima kerangka ini lalu
-mengembangkannya: ia mengakui tiga figur silogisme kategoris dengan empat,
-empat, dan enam modus valid,\autocite[bag.~6.1]{hodges-druart2019} dan
-memberi contoh silogisme valid: ``Tidak ada batu yang merupakan hewan.
-Sebagian benda adalah hewan. Maka: sebagian benda bukan
-batu.''\autocite[\emph{Syllogism} 27.6f, dikutip bag.~5]{hodges-druart2019}
+Latarnya adalah doktrin Aristoteles tentang deduksi, yaitu ujaran yang di dalamnya, dengan mengandaikan hal-hal tertentu, dihasilkan sesuatu yang berbeda secara niscaya karena hal-hal tersebut demikian.\autocite[bag.~3]{smith2022} Al-Farabi menerima kerangka ini lalu mengembangkannya. Ia mengakui tiga figur silogisme kategoris dengan empat, empat, dan enam modus yang valid,\autocite[bag.~6.1]{hodges-druart2019} dan memberi contoh silogisme yang valid: tidak ada batu yang merupakan hewan, sebagian benda adalah hewan, maka sebagian benda bukan batu.\autocite[\emph{Syllogism} 27.6f, dikutip bag.~5]{hodges-druart2019}
 
-Kontribusinya melampaui pengulangan. Pertama, ia memformalkan argumen
-majemuk hipotetik (\emph{Short Syllogism} 90.6--9).\autocite[bag.~6.2]{hodges-druart2019}
-Kedua, ia menguraikan demonstrasi sebagai silogisme \emph{Barbara} yang
-diberi tambahan-tambahan (\emph{Demonstration} 33.1--39.4).\autocite[bag.~6.4]{hodges-druart2019}
-Ketiga, menurut kajian SEP, ia tercatat paling awal secara eksplisit
-menyimpulkan muatan eksistensial dari ``Setiap B adalah A'' — klaim keaslian
-yang penulis kutip sebagai atribusi SEP, bukan verifikasi
-independen.\autocite[bag.~6.1]{hodges-druart2019}
+Kontribusinya melampaui pengulangan. Pertama, ia memformalkan argumen majemuk hipotetik.\autocite[bag.~6.2]{hodges-druart2019} Kedua, ia menguraikan demonstrasi sebagai silogisme \emph{Barbara} yang diberi tambahan-tambahan.\autocite[bag.~6.4]{hodges-druart2019} Ketiga, menurut kajian Hodges dan Druart, ia tercatat paling awal secara eksplisit menyimpulkan muatan eksistensial dari pernyataan bentuk setiap B adalah A. Klaim keaslian ini dikutip sebagai atribusi kajian tersebut, bukan sebagai verifikasi independen penulis.\autocite[bag.~6.1]{hodges-druart2019}
 
-Dimensi dialektika — seni debat dan pengujian premis — diwakili oleh
-\emph{Kitab al-Jadal}, yang kini tersedia kajian monografisnya
-(interpretasi penulis: ini menunjukkan logika Farabi mencakup penalaran
-defeasible, bukan hanya demonstrasi
-ketat).\autocite{dipasquale2019}
+Dimensi dialektika, yaitu seni perdebatan dan pengujian premis, diwakili oleh \emph{Kitab al-Jadal} yang kini tersedia kajian monografisnya.\autocite{dipasquale2019} Naskah ini tidak menyamakan dialektika tersebut dengan penalaran \emph{defeasible} modern. Kesetaraan seperti itu memerlukan pembahasan tersendiri dan dukungan sumber yang belum diakses dalam penelitian ini.
 
-\subsection{Keberatan: apakah kontribusi Farabi dilebih-lebihkan?}
+\subsection{Keberatan: apakah kontribusi al-Farabi dilebih-lebihkan?}
 
-Keberatan yang wajar (O2): menonjolkan Farabi berisiko mengecilkan Ibnu
-Sina dan Ibnu Rusyd. Jawabannya proporsional: makalah ini tidak mengklaim
-Farabi sebagai puncak, melainkan sebagai simpul sistematisasi awal yang
-terdokumentasi — dan justru kesinambungan kurikulum sembilan bagiannya ke
-Ibnu Sina menjadi bukti pengaruhnya yang
-terlembaga.\autocite{gutas2025} Kajian Chatti yang membentang hingga
-Averroes meneguhkan bingkai kesinambungan ini, bukan bingkai
-pemujaan.\autocite{chatti2019}
+Keberatan yang wajar adalah penonjolan al-Farabi berisiko mengecilkan Ibnu Sina dan Ibnu Rusyd. Jawabannya bersifat proporsional. Makalah ini tidak menempatkan al-Farabi sebagai puncak, melainkan sebagai simpul sistematisasi awal yang terdokumentasi. Justru kesinambungan kurikulum sembilan bagiannya ke Ibnu Sina menjadi bukti pengaruhnya yang terlembaga.\autocite{gutas2025} Kajian Chatti yang membentang hingga Averroes meneguhkan bingkai kesinambungan ini, bukan bingkai pemujaan.\autocite{chatti2019}
 
 \section{Relevansi terhadap Teknik Informatika}
 
 \subsection{Logika formal sebagai fondasi komputasi}
 
-Fondasi yang dipakai TI berbeda secara kualitatif. Codd (1970) membangun
-model data relasional di atas ``kalkulus predikat terapan'': adopsi model
-relasional ``memungkinkan pengembangan bahasa-bahasa bagian data universal
-yang berlandaskan kalkulus predikat terapan'' (hlm.~381).\autocite[381]{codd1970}
-Ia menuntut agar ``kelas ekspresi kualifikasi \dots\ memiliki daya deskriptif
-seperti kelas formula berkuantor yang baik dalam kalkulus predikat
-terapan''.\autocite[381]{codd1970} Relevan dengan tema perpustakaan: Codd
-menetapkan bahwa ``relasi-relasi yang dideklarasikan dimasukkan ke dalam
-katalog sistem'' (\emph{system catalog}).\autocite[381]{codd1970} Inilah
-titik temu fungsional yang presisi: katalog — daftar koleksi agar
-temu-kembali mungkin — muncul kembali sebagai komponen arsitektur basis
-data. Temu kembali informasi sendiri telah menjadi disiplin buku-teks yang
-mapan,\autocite{manning2008} dan filsafat informasi, termasuk informasi
-semantik, diakui sebagai sub-disiplin filsafat yang berhubungan erat dengan
-filsafat logika.\autocite{adriaans2023}
+Fondasi yang dipakai Teknik Informatika berbeda secara kualitatif. Codd membangun model data relasional di atas kalkulus predikat terapan. Ia menyatakan bahwa adopsi model relasional memungkinkan pengembangan bahasa bagian data yang universal yang berlandaskan kalkulus predikat terapan.\autocite[381]{codd1970} Ia menuntut agar kelas ekspresi kualifikasi memiliki daya deskriptif seperti kelas formula berkuantor yang baik dalam kalkulus predikat terapan.\autocite[381]{codd1970} Relevan dengan tema perpustakaan, Codd menetapkan bahwa relasi-relasi yang dideklarasikan dimasukkan ke dalam katalog sistem.\autocite[381]{codd1970} Di sinilah titik temu fungsional yang presisi: katalog, yaitu daftar koleksi agar temu kembali dimungkinkan, muncul kembali sebagai komponen arsitektur basis data. Temu kembali informasi sendiri telah menjadi disiplin buku teks yang mapan,\autocite{manning2008} dan filsafat informasi, termasuk informasi semantik, diakui sebagai subdisiplin filsafat yang berhubungan erat dengan filsafat logika.\autocite{adriaans2023}
 
 \subsection{Perbandingan terstruktur}
 
-Tabel~\ref{tab:banding} merangkum perbandingan. Kolom terakhir menandai
-status setiap baris: (H) hubungan historis langsung — \emph{tidak ada yang
-memenuhi syarat bukti}; (F) kemiripan fungsional; (T) perbedaan teknis.
+Tabel~\ref{tab:banding} merangkum perbandingan. Kolom terakhir menandai status setiap baris. Kode H berarti hubungan sejarah langsung, dan tidak ada baris yang memenuhi syarat bukti untuk kode ini. Kode F berarti kemiripan fungsional, sedangkan kode T berarti perbedaan teknis.
 
 \begin{table}[htbp]
 \centering
-\caption{Perbandingan logika Farabian dan logika formal TI}
+\small
+\caption{Perbandingan logika al-Farabi dan logika formal dalam Teknik Informatika}
 \label{tab:banding}
-\begin{tabularx}{\textwidth}{@{}lXXc@{}}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{2.4cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}Xc@{}}
 \toprule
-Aspek & Al-Farabi & Teknik Informatika & Status\\
+Aspek & al-Farabi & Teknik Informatika & Status\\
 \midrule
 Objek penalaran & Menilai kebenaran argumen dalam bahasa alamiah & Menilai validitas komputasi dan kueri formal & F\\
-Konsep \& definisi & Konsep diungkapkan ungkapan; klasifikasi ilmu (\emph{Ihsa}) & Ontologi, taksonomi, skema metadata & F\\
-Bentuk inferensi & Silogisme kategoris/hipotetik; demonstrasi \emph{Barbara} & Kalkulus proposisional/predikat; resolusi & T\\
-Katalog & \emph{Fihrist}: alat bantu manusia menemukan manuskrip & \emph{System catalog}: metadata yang dibaca mesin untuk optimasi kueri & F+T\\
-Temu kembali & Klasifikasi dan daftar koleksi & Model Boolean, probabilistik; indeks terbalik & F+T\\
-Basis formal & Bahasa + tatanan mental (\emph{tartib}) & Teori himpunan + aljabar relasional + indeks & T\\
+Konsep dan definisi & Konsep diungkapkan ungkapan; klasifikasi ilmu & Ontologi, taksonomi, skema metadata & F\\
+Bentuk inferensi & Silogisme kategoris dan hipotetik; demonstrasi \emph{Barbara} & Kalkulus proposisional dan predikat; resolusi & T\\
+Katalog & \emph{Fihrist} sebagai alat bantu manusia menemukan manuskrip & Katalog sistem sebagai metadata yang dibaca mesin untuk optimasi kueri & F+T\\
+Temu kembali & Klasifikasi dan daftar koleksi & Model Boolean dan probabilistik; indeks terbalik & F+T\\
+Basis formal & Bahasa dan tatanan mental & Teori himpunan, aljabar relasional, dan indeks & T\\
 \bottomrule
 \end{tabularx}
 \\[4pt]
-{\small Status: H = historis langsung (tidak ada yang terbukti);
-F = kemiripan fungsional; T = perbedaan teknis. Sumber: sintesis penulis dari S01/S13/S14.}
+{\footnotesize Status: H = hubungan sejarah langsung (tidak ada yang terbukti);
+F = kemiripan fungsional; T = perbedaan teknis. Tabel merupakan sintesis penulis dari kajian logika, kajian perpustakaan, dan kajian basis data yang dirujuk makalah ini.}
 \end{table}
 
-Dua baris patut diuraikan. Pertama, katalog: \emph{fihrist} manuskrip dan
-\emph{system catalog} Codd sama-sama menyimpan ``data tentang data'' agar
-koleksi dapat ditemukan kembali — kemiripan fungsional (F). Tetapi katalog
-Codd dibaca oleh mesin pengoptimasi kueri dan terikat pada kalkulus formal,
-sementara \emph{fihrist} dibaca manusia dan terikat konvensi filologis —
-perbedaan teknis (T) yang tidak boleh dikaburkan. Kedua, demonstrasi
-\emph{Barbara} dan pembuktian teorema: keduanya mengejar kepastian dari
-premis, tetapi demonstrasi Farabi bergerak dalam bahasa alamiah yang
-didisiplinkan, sedangkan pembuktian komputasi bergerak dalam bahasa formal
-yang dapat dieksekusi mesin.
+Dua baris perlu diuraikan. Pertama, katalog. \emph{Fihrist} manuskrip dan katalog sistem Codd sama-sama menyimpan data tentang data agar koleksi dapat ditemukan kembali, sehingga ada kemiripan fungsional. Namun katalog Codd dibaca oleh mesin pengoptimasi kueri dan terikat pada kalkulus formal, sedangkan \emph{fihrist} dibaca manusia dan terikat konvensi filologis. Itu adalah perbedaan teknis yang tidak boleh dikaburkan. Kedua, demonstrasi \emph{Barbara} dan pembuktian teorema. Keduanya mengejar kepastian dari premis, tetapi demonstrasi al-Farabi bergerak dalam bahasa alamiah yang didisiplinkan, sedangkan pembuktian komputasi bergerak dalam bahasa formal yang dapat dieksekusi mesin.
 
-\begin{batasbox}
-\textbf{(1) Tidak ada hubungan historis langsung.} Tidak ada bukti bahwa
-al-Farabi memengaruhi Codd atau perancang basis data; kesamaan kosakata
-(``katalog'') adalah konvergensi fungsional, dan mengklaim sebaliknya adalah
-anakronisme (menjawab O1). \textbf{(2) Normatif-filosofis vs operasional.}
-Klasifikasi ilmu pra-modern menetapkan tatanan ilmu yang seharusnya,
-sedangkan skema basis data harus mengeksekusi kueri dalam batas waktu
-(menjawab O3). \textbf{(3) Basis data tidak direduksi menjadi logika semata.}
-Model data, struktur indeks, bahasa kueri, dan rancangan sistem adalah lapisan
-teknik yang tidak identik dengan silogisme
-(interpretasi penulis, didukung arsitektur Codd yang memisahkan
-\emph{sublanguage} data dari kalkulusnya).\autocite[381]{codd1970}
-\end{batasbox}
+\subsection{Batas perbandingan}
+
+Perbandingan di atas memiliki tiga batas. Pertama, tidak ada hubungan sejarah langsung. Tidak ada bukti bahwa al-Farabi memengaruhi Codd atau perancang basis data. Kesamaan kosakata katalog adalah konvergensi fungsional, dan mengklaim sebaliknya adalah anakronisme. Kedua, klasifikasi ilmu pra-modern bersifat normatif dan filosofis karena menetapkan tatanan ilmu yang seharusnya, sedangkan skema basis data bersifat operasional karena harus mengeksekusi kueri dalam batas waktu. Ketiga, basis data tidak dapat direduksi menjadi logika semata. Model data, struktur indeks, bahasa kueri, dan rancangan sistem adalah lapisan teknik yang tidak identik dengan silogisme. Arsitektur Codd sendiri memisahkan bahasa bagian data dari kalkulusnya.\autocite[381]{codd1970}
 
 \section{Kesimpulan}
 
-Menjawab empat rumusan masalah: (1) peradaban Islam melembagakan
-pengorganisasian pengetahuan melalui institusi seperti Bayt al-Hikmah dengan
-praktik pengatalogan yang sistematis — klaim yang didukung survei
-teks-penuh, dengan angka-angka rinci sengaja tidak dikutip karena belum
-terverifikasi; (2) kontribusi spesifik al-Farabi terletak pada definisi
-subjek logika, sistematisasi tiga figur silogisme, formalisasi hipotetik
-majemuk, teori demonstrasi, dan dialektika — semuanya terdokumentasi dalam
-kajian teks-penuh; (3) persamaannya dengan logika TI bersifat fungsional
-(problem temu-kembali dan penilaian penalaran yang sejenis), perbedaannya
-bersifat fondasional (silogisme bahasa-alamiah versus kalkulus formal yang
-dieksekusi mesin); (4) perbandingan ini sah sebagai analisis konseptual dan
-gugur sebagai klaim historis.
+Menjawab empat rumusan masalah, makalah ini menyimpulkan empat hal. Pertama, peradaban Islam melembagakan pengorganisasian pengetahuan melalui institusi seperti Bayt al-Hikmah dengan praktik pengatalogan yang sistematis. Kedua, kontribusi spesifik al-Farabi terletak pada definisi subjek logika, sistematisasi tiga figur silogisme, formalisasi argumen hipotetik majemuk, teori demonstrasi, dan perhatian pada dialektika. Ketiga, persamaannya dengan logika dalam Teknik Informatika bersifat fungsional, yaitu kesamaan masalah temu kembali dan penilaian penalaran, sedangkan perbedaannya bersifat fondasional, yaitu silogisme dalam bahasa alamiah berbanding kalkulus formal yang dieksekusi mesin. Keempat, perbandingan ini sah sebagai analisis konseptual dan gugur sebagai klaim sejarah.
 
-Keterbatasan yang masih terbuka: teks-penuh Gutas (1998), Pedersen (1984),
-dan \emph{Fihrist} Ibn al-Nadim diperlukan untuk menguatkan klaim
-kuantitatif sejarah; akses ke Zimmermann (1981) dan Chatti (2019) teks-penuh
-diperlukan untuk kutipan langsung karya logika Farabi. Tidak ada referensi
-baru yang diperkenalkan di kesimpulan ini; tidak ada klaim yang melampaui
-bukti yang dirujuk.
+Keterbatasan yang masih terbuka adalah perlunya teks penuh kajian sejarah dan kajian logika Arab untuk menguatkan klaim yang saat ini baru didukung sebagai konteks umum, serta perlunya kajian atas \emph{Fihrist} Ibn al-Nadim untuk rincian praktik pengatalogan klasik.
 
+\clearpage
 \printbibliography[title=Daftar Pustaka]
 
 \end{document}
