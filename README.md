@@ -21,12 +21,15 @@ pencarian informasi, dan basis data).
 
 ```bash
 cd naskah
-pdflatex -interaction=nonstopmode main.tex
-bibtex main
-pdflatex -interaction=nonstopmode main.tex
-pdflatex -interaction=nonstopmode main.tex
+lualatex -interaction=nonstopmode main.tex
+biber main
+lualatex -interaction=nonstopmode main.tex
+lualatex -interaction=nonstopmode main.tex
 cp main.pdf ../output/naskah.pdf
 ```
+
+Font: TeX Gyre Termes (klon metrik Times; Times New Roman asli tidak
+tersedia di host ini — lihat `log/catatan_verifikasi.md`).
 
 ## Status verifikasi
 

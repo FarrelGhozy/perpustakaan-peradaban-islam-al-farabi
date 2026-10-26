@@ -1,18 +1,170 @@
-% Basis data bibliografi BibTeX.
-% ATURAN KERAS:
-% 1. Setiap entri WAJIB terverifikasi (lihat ../log/catatan_verifikasi.md).
-% 2. Dilarang mengarang penulis, judul, jurnal, volume, halaman, tahun, DOI, URL.
-% 3. Verifikasi silang via Crossref API: curl -s "https://api.crossref.org/works/<doi>"
-%    dan cek status HTTP setiap URL (hanya 200 yang diterima).
-% 4. Entri yang hanya diperiksa dari judul/abstrak TANPA teks penuh:
-%    tandai dengan field note = {belum verifikasi teks penuh} dan JANGAN disitasi
-%    untuk klaim penting sampai teks penuh diperiksa.
-%
-% Contoh entri valid (JANGAN pakai sebelum diverifikasi!):
-% @book{gutas1998,
-%   author    = {Dimitri Gutas},
-%   title     = {Greek Thought, Arabic Culture},
-%   publisher = {Routledge},
-%   year      = {1998},
-%   address   = {London},
-% }
+% Basis data bibliografi — HANYA entri terverifikasi (lihat ../log/catatan_verifikasi.md).
+% Kunci mengikuti konvensi penulis+tahun. Field note = status verifikasi.
+% Chicago NB diwujudkan lewat biblatex-chicago di main.tex (bukan lewat gaya .bst).
+
+@online{hodges-druart2019,
+  author       = {Wilfrid Hodges and Therese-Anne Druart},
+  title        = {Al-Farabi's Philosophy of Logic and Language},
+  organization = {Stanford Encyclopedia of Philosophy},
+  year         = {2019},
+  note         = {Pertama terbit 16 Apr 2019; revisi substantif 9 Mei 2023. Teks-penuh terverifikasi (HTTP 200).},
+  url          = {https://plato.stanford.edu/entries/al-farabi-logic/},
+  urldate      = {2026-10-26},
+}
+
+@online{druart2024,
+  author       = {Therese-Anne Druart},
+  title        = {Al-Farabi},
+  organization = {Stanford Encyclopedia of Philosophy},
+  year         = {2024},
+  note         = {Pertama terbit 15 Jul 2016; revisi substantif 14 Mei 2024. Metadata terverifikasi (HTTP 200); isi umum dirujuk hati-hati, klaim logika merujuk ke hodges-druart2019.},
+  url          = {https://plato.stanford.edu/entries/al-farabi/},
+  urldate      = {2026-10-26},
+}
+
+@online{smith2022,
+  author       = {Robin Smith},
+  title        = {Aristotle's Logic},
+  organization = {Stanford Encyclopedia of Philosophy},
+  year         = {2022},
+  note         = {Pertama terbit 18 Mar 2000; revisi substantif 22 Nov 2022. Teks-penuh terverifikasi (HTTP 200); dipakai untuk definisi deduksi Prior Analytics I.2 dan doktrin silogisme.},
+  url          = {https://plato.stanford.edu/entries/aristotle-logic/},
+  urldate      = {2026-10-26},
+}
+
+@online{gutas2025,
+  author       = {Dimitri Gutas},
+  title        = {Ibn Sina [Avicenna]},
+  organization = {Stanford Encyclopedia of Philosophy},
+  year         = {2025},
+  note         = {Pertama terbit 15 Sep 2016; revisi 31 Okt 2025. Teks-penuh terverifikasi (HTTP 200); dipakai untuk posisi Posterior Analytics dan peran al-Farabi sebagai pendahulu.},
+  url          = {https://plato.stanford.edu/entries/ibn-sina/},
+  urldate      = {2026-10-26},
+}
+
+@book{zimmermann1981,
+  editor    = {F. W. Zimmermann},
+  title     = {Al-Farabi's Commentary and Short Treatise on {Aristotle's} \emph{De Interpretatione}},
+  series    = {Classical and Medieval Logic Texts III},
+  publisher = {Oxford University Press for the British Academy},
+  address   = {London},
+  year      = {1981},
+  note      = {Metadata terverifikasi (Crossref + resensi CUP DOI 10.1017/s0020743800029111: 287 hlm). Teks-penuh belum; dirujuk via parafrasa SEP hodges-druart2019.},
+}
+
+@book{chatti2019,
+  author    = {Saloua Chatti},
+  title     = {Arabic Logic from al-{F\=ar\=ab\=i} to {Averroes}: A Study of the Early Arabic Categorical, Modal, and Hypothetical Syllogistics},
+  publisher = {Birkh\"auser/Springer},
+  address   = {Cham},
+  year      = {2019},
+  doi       = {10.1007/978-3-030-27466-5},
+  note      = {Metadata terverifikasi (Crossref DOI aktif; dirujuk di bibliografi SEP). Teks-penuh belum.},
+}
+
+@book{black1990,
+  author    = {Deborah L. Black},
+  title     = {Logic and {Aristotle's} \emph{Rhetoric} and \emph{Poetics} in Medieval Arabic Philosophy},
+  publisher = {Brill},
+  address   = {Leiden},
+  year      = {1990},
+  doi       = {10.1163/9789004452398},
+  note      = {Metadata terverifikasi (Crossref DOI aktif; Open Library cocok). Teks-penuh belum.},
+}
+
+@book{dipasquale2019,
+  author    = {David M. DiPasquale},
+  title     = {Alfarabi's \emph{Book of Dialectic (Kit\=ab al-Jadal)}: On the Starting Point of Islamic Philosophy},
+  publisher = {Cambridge University Press},
+  address   = {Cambridge},
+  year      = {2019},
+  doi       = {10.1017/9781108277822},
+  note      = {Metadata terverifikasi (Crossref DOI aktif). Teks-penuh belum; relevansi dikonfirmasi via bibliografi SEP.},
+}
+
+@book{mahdi1969,
+  author    = {Muhsin Mahdi},
+  title     = {Alfarabi's Philosophy of {Plato} and {Aristotle}},
+  publisher = {Cornell University Press},
+  address   = {Ithaca, N.Y.},
+  year      = {1969},
+  note      = {Metadata terverifikasi (edisi Open Library: Cornell UP, Ithaca N.Y., 1969; resensi JSTOR konsisten). Teks-penuh belum; berisi terjemahan Attainment of Happiness + Philosophy of Plato + Philosophy of Aristotle.},
+}
+
+@book{gutas1998,
+  author    = {Dimitri Gutas},
+  title     = {Greek Thought, Arabic Culture: The Graeco-Arabic Translation Movement in {Baghdad} and Early {`Abb\=asid} Society (2nd--4th/8th--10th Centuries)},
+  publisher = {Routledge},
+  address   = {London and New York},
+  year      = {1998},
+  doi       = {10.4324/9780203316274},
+  note      = {Metadata terverifikasi (penerbit 200; Crossref + Open Library + archive.org cocok). Teks-penuh belum (archive.org pinjam-terbatas); tidak ada kutipan halaman.},
+}
+
+@book{pedersen1984,
+  author     = {Johannes Pedersen},
+  title      = {The Arabic Book},
+  translator = {Geoffrey French},
+  editor     = {Robert Hillenbrand},
+  publisher  = {Princeton University Press},
+  address    = {Princeton},
+  year       = {1984},
+  doi        = {10.1515/9781400856374},
+  note      = {Metadata terverifikasi (Crossref; resensi CUP konsisten: French/Hillenbrand, edisi asli Denmark 1946). Teks-penuh belum.},
+}
+
+@article{mackensen1932,
+  author  = {Ruth Stellhorn Mackensen},
+  title   = {Four Great Libraries of Medieval {Baghdad}},
+  journal = {The Library Quarterly},
+  volume  = {2},
+  number  = {3},
+  pages   = {279--299},
+  year    = {1932},
+  doi     = {10.1086/613127},
+  note    = {Metadata terverifikasi (Crossref DOI aktif, UCP, Juli 1932). Teks-penuh belum; dipakai sebagai penopang historiografis via sitasi sekunder yg terverifikasi.},
+}
+
+@article{algeriani-mohadi2017,
+  author  = {Adel Abdul-Aziz Algeriani and Mawloud Mohadi},
+  title   = {The House of Wisdom ({Bayt} al-{Hikmah}) and Its Civilizational Impact on Islamic Libraries: A Historical Perspective},
+  journal = {Mediterranean Journal of Social Sciences},
+  volume  = {8},
+  number  = {5},
+  pages   = {179--187},
+  year    = {2017},
+  doi     = {10.1515/mjss-2017-0036},
+  note    = {Teks-penuh terverifikasi (PDF OA 9 hlm, CC BY-NC-ND). Artikel survei: dipakai hati-hati, angka spesifik tidak dikutip tanpa silang sumber primer.},
+}
+
+@article{codd1970,
+  author  = {E. F. Codd},
+  title   = {A Relational Model of Data for Large Shared Data Banks},
+  journal = {Communications of the ACM},
+  volume  = {13},
+  number  = {6},
+  pages   = {377--387},
+  year    = {1970},
+  doi     = {10.1145/362384.362685},
+  note    = {Teks-penuh terverifikasi (PDF 11 hlm; footer vol/hlm cocok Crossref). ACM langsung 403 (blokir bot), diverifikasi via Crossref + mirror UPenn.},
+}
+
+@online{adriaans2023,
+  author       = {Pieter Adriaans},
+  title        = {Information},
+  organization = {Stanford Encyclopedia of Philosophy},
+  year         = {2023},
+  note         = {Pertama terbit 26 Okt 2012; revisi substantif 1 Nov 2023. Teks-penuh terverifikasi (HTTP 200); dipakai untuk filsafat informasi (data, informasi semantik, ontologi).},
+  url          = {https://plato.stanford.edu/entries/information/},
+  urldate      = {2026-10-26},
+}
+
+@book{manning2008,
+  author    = {Christopher D. Manning and Prabhakar Raghavan and Hinrich Sch\"utze},
+  title     = {Introduction to Information Retrieval},
+  publisher = {Cambridge University Press},
+  address   = {Cambridge},
+  year      = {2008},
+  doi       = {10.1017/CBO9780511809071},
+  note      = {Metadata terverifikasi (Crossref DOI aktif; situs resmi penulis http://informationretrieval.org tidak terjangkau saat verifikasi, otoritas dialihkan ke CUP). Teks-penuh belum.},
+}
