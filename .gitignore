@@ -1,0 +1,27 @@
+# LaTeX artifacts — JANGAN commit file-file ini
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.nav
+*.snm
+*~
+
+# Editor / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Python (skrip bantu bila ada)
+__pycache__/
+*.pyc
+.venv/
