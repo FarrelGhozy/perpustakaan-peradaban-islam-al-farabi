@@ -129,6 +129,32 @@ Log pemeriksaan sumber. Jujur dan lengkap: catat juga yang GAGAL diverifikasi.
 - Status: petunjuk akses teks Arab; BUKAN otoritas sitasi akademik. Setiap file PDF yg dipakai harus
   diverifikasi terpisah (edisi, editor, kelengkapan).
 
+### [2026-10-27] DOCX + Zotero — naskah.docx di folder docx/
+- Zotero Desktop 140.17.0esr DIUNDUH (118 MB, zotero.org) dan TERBUKTI berjalan
+  (`zotero --version` OK). Tidak dapat dipakai untuk sitasi: host headless
+  tanpa layar + tanpa MS Word (hanya LibreOffice); integrasi Word/Zotero butuh GUI.
+- Mendeley: tidak tersedia di host ini. Fallback tidak dapat dijalankan.
+- Pengganti yang benar-benar dilakukan: `naskah/referensi.bib` diimpor melalui
+  translator BibTeX RESMI Zotero (translation-server v2.0.5, 748 translator):
+ HTTP 200, 16/16 item terurai (webpage ×5, book ×8, journalArticle ×3).
+  Hasil disimpan di `kutipan/zotero-csl.json`.
+- Temuan & perbaikan: impor pertama menampakkan artefak `\emph`, `\=a`, `\"u`
+  di judul (translator Zotero tidak memproses markup LaTeX). Seluruh markup
+  dibersihkan jadi Unicode (Fārābī, Birkhäuser, Schütze, Kitāb, ʿAbbāsid,
+  apostrof lurus). Impor ulang: 16 item, 0 artefak. LaTeX dikompilasi ulang:
+  15 hlm, 0 error; `output/naskah.pdf` disinkronkan.
+- `docx/naskah.docx` dibangun dari `main.tex` (python-docx): 94 paragraf,
+  10 Heading 1, 2 tabel SEQ-caption, 61 footnote Word asli (Chicago NB penuh→singkat),
+  16 entri Daftar Pustaka, A4, margin 2,54 cm, Times New Roman 12 pt, single,
+  nomor halaman. Validasi: dibuka ulang via python-docx OK; render LibreOffice
+  → 13 hlm A4, semua konten/tabel/sitasi hadir; font properti TNR (render
+  visual memakai substitusi metrik Liberation Serif — di Word pengguna tampil
+  Times New Roman asli).
+- Status integrasi: BELUM TERPENUHI (sitasi teks statis, bukan field aktif
+  Zotero/Mendeley). Instruksi hubung-ulang ±10 menit ada di `docx/README.md`.
+- Font: properti DOCX = Times New Roman (benar untuk target MS Word); host
+  Linux tidak memiliki berkas TNR sehingga pemeriksaan visual memakai substitusi.
+
 ### GAGAL / DITOLAK
 - Britannica "Bayt al-Hikmah" — HTTP 403 (Cloudflare, blokir bot). BUKAN bukti tidak ada; tidak dipakai.
 - Encyclopaedia Iranica "Farabi ii. Logic" (Black) — HTTP 403 (blokir). Tidak dipakai sampai akses legal.

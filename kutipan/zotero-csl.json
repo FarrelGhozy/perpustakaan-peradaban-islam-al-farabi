@@ -1,0 +1,325 @@
+[
+  {
+    "key": "UCFRJGFK",
+    "version": 0,
+    "itemType": "webpage",
+    "creators": [
+      {
+        "firstName": "Wilfrid",
+        "lastName": "Hodges",
+        "creatorType": "author"
+      },
+      {
+        "firstName": "Therese-Anne",
+        "lastName": "Druart",
+        "creatorType": "author"
+      }
+    ],
+    "tags": [],
+    "title": "Al-Farabi's Philosophy of Logic and Language",
+    "url": "https://plato.stanford.edu/entries/al-farabi-logic/",
+    "accessDate": "2026-10-26",
+    "date": "2019",
+    "publisher": "Stanford Encyclopedia of Philosophy"
+  },
+  {
+    "key": "AL25APYF",
+    "version": 0,
+    "itemType": "webpage",
+    "creators": [
+      {
+        "firstName": "Therese-Anne",
+        "lastName": "Druart",
+        "creatorType": "author"
+      }
+    ],
+    "tags": [],
+    "title": "Al-Farabi",
+    "url": "https://plato.stanford.edu/entries/al-farabi/",
+    "accessDate": "2026-10-26",
+    "date": "2024",
+    "publisher": "Stanford Encyclopedia of Philosophy"
+  },
+  {
+    "key": "63BWSKK5",
+    "version": 0,
+    "itemType": "webpage",
+    "creators": [
+      {
+        "firstName": "Robin",
+        "lastName": "Smith",
+        "creatorType": "author"
+      }
+    ],
+    "tags": [],
+    "title": "Aristotle's Logic",
+    "url": "https://plato.stanford.edu/entries/aristotle-logic/",
+    "accessDate": "2026-10-26",
+    "date": "2022",
+    "publisher": "Stanford Encyclopedia of Philosophy"
+  },
+  {
+    "key": "5VF64B6B",
+    "version": 0,
+    "itemType": "webpage",
+    "creators": [
+      {
+        "firstName": "Dimitri",
+        "lastName": "Gutas",
+        "creatorType": "author"
+      }
+    ],
+    "tags": [],
+    "title": "Ibn Sina [Avicenna]",
+    "url": "https://plato.stanford.edu/entries/ibn-sina/",
+    "accessDate": "2026-10-26",
+    "date": "2025",
+    "publisher": "Stanford Encyclopedia of Philosophy"
+  },
+  {
+    "key": "X8YACKZI",
+    "version": 0,
+    "itemType": "book",
+    "creators": [
+      {
+        "firstName": "F. W.",
+        "lastName": "Zimmermann",
+        "creatorType": "editor"
+      }
+    ],
+    "tags": [],
+    "title": "Al-Farabi's Commentary and Short Treatise on Aristotle's De Interpretatione",
+    "series": "Classical and Medieval Logic Texts III",
+    "publisher": "Oxford University Press for the British Academy",
+    "place": "London",
+    "date": "1981"
+  },
+  {
+    "key": "WEY9XVEN",
+    "version": 0,
+    "itemType": "book",
+    "creators": [
+      {
+        "firstName": "Saloua",
+        "lastName": "Chatti",
+        "creatorType": "author"
+      }
+    ],
+    "tags": [],
+    "title": "Arabic Logic from al-Fārābī to Averroes: A Study of the Early Arabic Categorical, Modal, and Hypothetical Syllogistics",
+    "publisher": "Birkhäuser/Springer",
+    "place": "Cham",
+    "DOI": "10.1007/978-3-030-27466-5",
+    "date": "2019"
+  },
+  {
+    "key": "LIW6FBU5",
+    "version": 0,
+    "itemType": "book",
+    "creators": [
+      {
+        "firstName": "Deborah L.",
+        "lastName": "Black",
+        "creatorType": "author"
+      }
+    ],
+    "tags": [],
+    "title": "Logic and Aristotle's Rhetoric and Poetics in Medieval Arabic Philosophy",
+    "publisher": "Brill",
+    "place": "Leiden",
+    "DOI": "10.1163/9789004452398",
+    "date": "1990"
+  },
+  {
+    "key": "FLL6K272",
+    "version": 0,
+    "itemType": "book",
+    "creators": [
+      {
+        "firstName": "David M.",
+        "lastName": "DiPasquale",
+        "creatorType": "author"
+      }
+    ],
+    "tags": [],
+    "title": "Alfarabi's Book of Dialectic (Kitāb al-Jadal): On the Starting Point of Islamic Philosophy",
+    "publisher": "Cambridge University Press",
+    "place": "Cambridge",
+    "DOI": "10.1017/9781108277822",
+    "date": "2019"
+  },
+  {
+    "key": "XPNDJMCT",
+    "version": 0,
+    "itemType": "book",
+    "creators": [
+      {
+        "firstName": "Muhsin",
+        "lastName": "Mahdi",
+        "creatorType": "author"
+      }
+    ],
+    "tags": [],
+    "title": "Alfarabi's Philosophy of Plato and Aristotle",
+    "publisher": "Cornell University Press",
+    "place": "Ithaca, N.Y.",
+    "date": "1969"
+  },
+  {
+    "key": "CP9HGF24",
+    "version": 0,
+    "itemType": "book",
+    "creators": [
+      {
+        "firstName": "Dimitri",
+        "lastName": "Gutas",
+        "creatorType": "author"
+      }
+    ],
+    "tags": [],
+    "title": "Greek Thought, Arabic Culture: The Graeco-Arabic Translation Movement in Baghdad and Early ʿAbbāsid Society (2nd–4th/8th–10th Centuries)",
+    "publisher": "Routledge",
+    "place": "London and New York",
+    "DOI": "10.4324/9780203316274",
+    "date": "1998"
+  },
+  {
+    "key": "9XC9J5VE",
+    "version": 0,
+    "itemType": "book",
+    "creators": [
+      {
+        "firstName": "Johannes",
+        "lastName": "Pedersen",
+        "creatorType": "author"
+      },
+      {
+        "firstName": "Geoffrey",
+        "lastName": "French",
+        "creatorType": "translator"
+      },
+      {
+        "firstName": "Robert",
+        "lastName": "Hillenbrand",
+        "creatorType": "editor"
+      }
+    ],
+    "tags": [],
+    "title": "The Arabic Book",
+    "publisher": "Princeton University Press",
+    "place": "Princeton",
+    "DOI": "10.1515/9781400856374",
+    "date": "1984"
+  },
+  {
+    "key": "SUG2M7GU",
+    "version": 0,
+    "itemType": "journalArticle",
+    "creators": [
+      {
+        "firstName": "Ruth Stellhorn",
+        "lastName": "Mackensen",
+        "creatorType": "author"
+      }
+    ],
+    "tags": [],
+    "title": "Four Great Libraries of Medieval Baghdad",
+    "publicationTitle": "The Library Quarterly",
+    "volume": "2",
+    "issue": "3",
+    "pages": "279–299",
+    "DOI": "10.1086/613127",
+    "date": "1932"
+  },
+  {
+    "key": "PVH9VMJK",
+    "version": 0,
+    "itemType": "journalArticle",
+    "creators": [
+      {
+        "firstName": "Adel Abdul-Aziz",
+        "lastName": "Algeriani",
+        "creatorType": "author"
+      },
+      {
+        "firstName": "Mawloud",
+        "lastName": "Mohadi",
+        "creatorType": "author"
+      }
+    ],
+    "tags": [],
+    "title": "The House of Wisdom (Bayt al-Hikmah) and Its Civilizational Impact on Islamic Libraries: A Historical Perspective",
+    "publicationTitle": "Mediterranean Journal of Social Sciences",
+    "volume": "8",
+    "issue": "5",
+    "pages": "179–187",
+    "DOI": "10.1515/mjss-2017-0036",
+    "date": "2017"
+  },
+  {
+    "key": "MSLSPCWA",
+    "version": 0,
+    "itemType": "journalArticle",
+    "creators": [
+      {
+        "firstName": "E. F.",
+        "lastName": "Codd",
+        "creatorType": "author"
+      }
+    ],
+    "tags": [],
+    "title": "A Relational Model of Data for Large Shared Data Banks",
+    "publicationTitle": "Communications of the ACM",
+    "volume": "13",
+    "issue": "6",
+    "pages": "377–387",
+    "DOI": "10.1145/362384.362685",
+    "date": "1970"
+  },
+  {
+    "key": "37D2TI3H",
+    "version": 0,
+    "itemType": "webpage",
+    "creators": [
+      {
+        "firstName": "Pieter",
+        "lastName": "Adriaans",
+        "creatorType": "author"
+      }
+    ],
+    "tags": [],
+    "title": "Information",
+    "url": "https://plato.stanford.edu/entries/information/",
+    "accessDate": "2026-10-26",
+    "date": "2023",
+    "publisher": "Stanford Encyclopedia of Philosophy"
+  },
+  {
+    "key": "CZBQ4SPG",
+    "version": 0,
+    "itemType": "book",
+    "creators": [
+      {
+        "firstName": "Christopher D.",
+        "lastName": "Manning",
+        "creatorType": "author"
+      },
+      {
+        "firstName": "Prabhakar",
+        "lastName": "Raghavan",
+        "creatorType": "author"
+      },
+      {
+        "firstName": "Hinrich",
+        "lastName": "Schütze",
+        "creatorType": "author"
+      }
+    ],
+    "tags": [],
+    "title": "Introduction to Information Retrieval",
+    "publisher": "Cambridge University Press",
+    "place": "Cambridge",
+    "DOI": "10.1017/CBO9780511809071",
+    "date": "2008"
+  }
+]

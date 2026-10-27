@@ -10,13 +10,18 @@ pencarian informasi, dan basis data).
 
 ## Status ringkas
 
-- Naskah: `naskah/main.tex` → PDF `output/naskah.pdf` (10 hlm A4, 12pt, single, margin 2,54 cm,
+- Naskah: `naskah/main.tex` → PDF `output/naskah.pdf` (15 hlm A4, 12pt, single, margin 2,54 cm,
   LuaLaTeX + Biber, 0 error, 16 sumber tersitasi semua).
 - Referensi: 16 unik, **7 teks-penuh** (5 HTML resmi SEP di `kutipan/sep/` + 2 PDF jurnal di
   `kutipan/artikel_jurnal/`) + 9 metadata resmi (buku/artikel paywall, hanya klaim umum tanpa halaman).
 - Semua DOI/URL di `kutipan/daftar_sumber.md` adalah URL resmi (official): DOI resmi atau halaman
   resmi penerbit (ACM, UCP, Springer, CUP, Brill, De Gruyter, Routledge, OJS Richtmann, SEP Stanford).
 - Presentasi: `presentasi/rangkuman_ppt.md` (10 slide, setia pada naskah, tiap klaim ada sumber).
+- Word: `docx/naskah.docx` (dari `main.tex`, 61 footnote Chicago asli, 2 tabel,
+  A4/TNR 12pt/single; sitasi teks statis — lihat `docx/README.md`).
+  Zotero Desktop 140.17.0esr terunduh & berjalan, tapi integrasi Word butuh GUI
+  sehingga status field-aktif BELUM TERPENUHI; `.bib` lolos translator resmi
+  Zotero 16/16 bersih (`kutipan/zotero-csl.json`).
 - Lisensi: file proyek sendiri MIT (lihat `LICENSE`); PDF pihak ketiga di `kutipan/` tetap milik
   penerbit masing-masing — repo ini **private**, bukan untuk redistribusi publik.
 
@@ -32,6 +37,7 @@ pencarian informasi, dan basis data).
 - `riset/` — rumusan masalah, peta argumen, matriks sumber, catatan sejarah.
 - `presentasi/` — rangkuman bahan presentasi (Markdown, bukan PPT).
 - `output/` — PDF hasil kompilasi (`naskah.pdf`).
+- `docx/` — versi Word (`naskah.docx` + `README.md` berisi status Zotero & cara hubung-ulang).
 - `log/` — catatan verifikasi (sumber diperiksa vs belum; termasuk yang gagal).
 
 ## Cara kompilasi

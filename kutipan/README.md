@@ -15,6 +15,10 @@ Satu sitasi = satu baris di `daftar_sumber.md` = satu berkas/bukti di direktori 
   status akses, dan batas penggunaan. TIDAK ada PDF bajakan.
 - `sumber_primer/` — petunjuk akses legal karya al-Farabi (lihat README di dalamnya).
 - `metadata/` — hasil verifikasi Crossref / Open Library per sumber (JSON).
+- `zotero-csl.json` — hasil impor `naskah/referensi.bib` melalui translator
+  BibTeX resmi Zotero (translation-server v2.0.5, 748 translator, 16 item
+  terurai bersih). Bukti bahwa .bib siap impor ke Zotero Desktop; BUKAN
+  pengganti library Zotero pengguna.
 
 ## Penamaan
 

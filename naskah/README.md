@@ -27,5 +27,17 @@ Times yang tersedia bebas. Times New Roman asli tidak tersedia di host ini,
 sehingga PDF **tidak diklaim** memakai Times New Roman. Jika Anda memiliki
 lisensi Times New Roman, ganti satu baris `setmainfont` dan kompilasi ulang.
 
-Kompilasi terakhir yang terverifikasi: 10 halaman A4, 0 error, 16 entri
-pustaka tersitasi semua, lihat `../log/catatan_verifikasi.md`.
+Kompilasi terakhir yang terverifikasi: 15 halaman A4, 0 error, 16 entri
+pustaka, lihat `../log/catatan_verifikasi.md`.
+
+## Versi Word (DOCX)
+
+`../docx/naskah.docx` dibangun dari `main.tex` ini (bukan dari PDF) dengan
+python-docx: Judul/Heading 1/2 memakai Word Styles, 61 catatan kaki Chicago
+NB sebagai footnote Word asli, 2 tabel ber-caption (SEQ Tabel), Daftar
+Pustaka 16 entri, A4 + margin 2,54 cm + Times New Roman 12 pt + single
+spacing + nomor halaman. Sitasi berupa teks statis terverifikasi — BUKAN
+field aktif Zotero (lihat status integrasi di `../log/catatan_verifikasi.md`
+dan cara menghubungkan ulang di `../docx/README.md`). Setiap perubahan isi
+wajib dilakukan di `main.tex` lalu bangun ulang DOCX; jangan edit DOCX
+sebagai sumber kebenaran.
